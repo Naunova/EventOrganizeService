@@ -1,30 +1,25 @@
-﻿using System;
+﻿using EventOrganizeDataModel;
+using EventOrganizeDomainClasses;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.Composition;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
-using EventOrganizeDataModel;
-using EventOrganizeDomainClasses;
-using WCFService.Contracts;
-using System.ComponentModel.Composition.Hosting;
-using System.ServiceModel;
-using System.CodeDom;
-using System.Net;
+using WcfServiceEventOrganize.Contracts;
 
-namespace WCFService.Services
+namespace WcfServiceEventOrganize.Services
 {
-    public class EventService:IEventContract
-
+   public class EventService:IEventContract
     {
-     
+
         public EventService(IUnitOfWork unitOfWork)
         {
-           _UnitOfWork = unitOfWork;
-            
+            _UnitOfWork = unitOfWork;
+
         }
-   
-       private IUnitOfWork _UnitOfWork;
+
+        private IUnitOfWork _UnitOfWork;
 
 
         public Event GetEvent(int Id)
@@ -44,7 +39,7 @@ namespace WCFService.Services
             catch (FaultException ex)
             {
                 throw ex;
-            
+
             }
             catch (Exception ex)
 
@@ -52,18 +47,18 @@ namespace WCFService.Services
 
                 throw new FaultException(ex.Message);
             }
-           
-            
+
+
         }
 
         public Event[] GetAllEvents()
         {
             IEnumerable<Event> events = _UnitOfWork.EventRepository.GetAll();
             return events.ToArray();
-          
+
         }
 
-       
+
 
         public Event UpdateEvent(Event EventToUpdate)
         {
@@ -78,13 +73,15 @@ namespace WCFService.Services
             return EventToUpdate;
         }
 
-  
+
 
         public void DeleteEvent(int Id)
         {
-           Event eventToDelete = _UnitOfWork.EventRepository.GetById(Id);
-          _UnitOfWork.EventRepository.Delete(eventToDelete);
-          
+            Event eventToDelete = _UnitOfWork.EventRepository.GetById(Id);
+            _UnitOfWork.EventRepository.Delete(eventToDelete);
+
         }
     }
+
 }
+

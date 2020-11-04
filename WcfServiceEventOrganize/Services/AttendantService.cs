@@ -6,11 +6,14 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
-using WCFService.Contracts;
+using WcfServiceEventOrganize.Contracts;
+using System.Runtime.Serialization;
 
-namespace WCFService.Services
+
+
+namespace WcfServiceEventOrganize.Services
 {
-    public class AttendantService : IAttendantContract
+   public class AttendantService:IAttendantContract
     {
         private IUnitOfWork _UnitOfWork;
         public AttendantService(IUnitOfWork unitOfWork)
@@ -19,12 +22,12 @@ namespace WCFService.Services
 
         }
 
-        
+
         public Attendant GetAttendant(int Id)
         {
             try
             {
-                Attendant attendantEntity= _UnitOfWork.AttendantRepository.GetById(Id);
+                Attendant attendantEntity = _UnitOfWork.AttendantRepository.GetById(Id);
                 if (attendantEntity == null)
                 {
                     NotFoundExeption ex = new NotFoundExeption(string.Format("Attendant with Id of {0} is not in the Database", Id));
@@ -71,9 +74,5 @@ namespace WCFService.Services
             _UnitOfWork.AttendantRepository.Delete(attendantToDelete);
         }
 
-      
-
-        
-       
     }
 }

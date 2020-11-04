@@ -1,19 +1,17 @@
-﻿using System;
+﻿using EventOrganizeDataModel;
+using EventOrganizeDomainClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
-using System.ServiceModel;
-using EventOrganizeDomainClasses;
-using System.ServiceModel.PeerResolvers;
-using EventOrganizeDataModel;
 
-namespace WCFService.Contracts
+namespace WcfServiceEventOrganize.Contracts
 {
-    [ServiceContract(Namespace = "http://Microsoft.ServiceModel.Samples")]
+    [ServiceContract]
     public interface IEventContract
-    {
-        //entry in the asemblyinfo file for the namespace 
+    { 
         [OperationContract]
         Event GetEvent(int Id);
 
@@ -25,7 +23,7 @@ namespace WCFService.Contracts
         Event UpdateEvent(Event EventToUpdate);
 
         [OperationContract]
-        void DeleteEvent(int Id); 
+        void DeleteEvent(int Id);
 
 
     }

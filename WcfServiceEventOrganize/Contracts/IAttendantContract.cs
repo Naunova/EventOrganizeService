@@ -6,10 +6,10 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WCFService.Contracts
+namespace WcfServiceEventOrganize.Contracts
 {
-    [ServiceContract(Namespace = "http://Microsoft.ServiceModel.Samples")]
-    public interface IAttendantContract
+    [ServiceContract]
+   public interface IAttendantContract
     {
         [OperationContract]
         Attendant GetAttendant(int Id);

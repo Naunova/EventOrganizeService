@@ -1,18 +1,15 @@
-﻿using System;
+﻿using EventOrganizeDomainClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
-using System.ServiceModel;
-using EventOrganizeDomainClasses;
-using System.ServiceModel.PeerResolvers;
-using EventOrganizeDataModel;
 
-
-namespace WCFService.Contracts
+namespace WcfServiceEventOrganize.Contracts
 {
-    [ServiceContract(Namespace = "http://Microsoft.ServiceModel.Samples")]
-    interface IUserProfileContract
+    [ServiceContract]
+   public interface IUserProfileContract
     {
         [OperationContract]
         UserProfile GetUserProfile(int Id);
@@ -22,6 +19,5 @@ namespace WCFService.Contracts
         UserProfile UpdateUSerProfile(UserProfile UserToUpdate);
         [OperationContract]
         void DeleteUserProifile(int Id);
-
     }
 }

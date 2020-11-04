@@ -11,16 +11,26 @@ namespace EventOrganizeDomainClasses
 { 
     using System;
     using System.Collections.Generic;
+    using System.Runtime.Serialization;
 
+    [DataContract]
     public partial class Attendant
     {
+        [DataMember]
         public int Id { get; set; }
+        [DataMember]
         public Nullable<int> UserId { get; set; }
+        [DataMember]
         public Nullable<int> RoleId { get; set; }
+        [DataMember]
         public Nullable<int> EventId { get; set; }
+        [DataMember]
 
         public virtual Event Event { get; set; }
+        [DataMember]
         public virtual cls_Role cls_Role { get; set; }
+        [DataMember]
         public virtual UserProfile UserProfile { get; set; }
+
     }
 }
