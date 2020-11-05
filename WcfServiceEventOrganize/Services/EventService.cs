@@ -19,8 +19,12 @@ namespace WcfServiceEventOrganize.Services
 
         }
 
-        private IUnitOfWork _UnitOfWork;
+       IUnitOfWork _UnitOfWork;
 
+        public EventService()
+        {
+
+        }
 
         public Event GetEvent(int Id)
         {

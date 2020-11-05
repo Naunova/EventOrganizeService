@@ -13,12 +13,14 @@ namespace WcfServiceEventOrganize.Services
     public class UserProfileService:IUserProfileContract
     {
        
+  
             private IUnitOfWork _UnitOfWork;
             public UserProfileService(IUnitOfWork unitOfWork)
             {
                 _UnitOfWork = unitOfWork;
             }
 
+        
             public UserProfile[] GetAllUserProfiles()
             {
                 IEnumerable<UserProfile> users = _UnitOfWork.UserProfileRepository.GetAll();

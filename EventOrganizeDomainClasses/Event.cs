@@ -11,7 +11,9 @@ namespace EventOrganizeDomainClasses
 {
     using System;
     using System.Collections.Generic;
+    using System.Runtime.Serialization;
 
+    [DataContract]
     public partial class Event
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,19 +21,29 @@ namespace EventOrganizeDomainClasses
         {
             this.Attendants = new HashSet<Attendant>();
         }
-
+        [DataMember]
         public int Id { get; set; }
+        [DataMember]
         public string Name { get; set; }
+        [DataMember]
         public Nullable<System.DateTime> Date { get; set; }
+        [DataMember]
         public Nullable<System.TimeSpan> Time { get; set; }
+        [DataMember]
         public Nullable<int> PlaceId { get; set; }
+        [DataMember]
         public Nullable<int> ResourceId { get; set; }
+        [DataMember]
         public Nullable<int> CreatorId { get; set; }
+        [DataMember]
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Attendant> Attendants { get; set; }
+        [DataMember]
         public virtual cls_Place cls_Place { get; set; }
+        [DataMember]
         public virtual cls_Resources cls_Resources { get; set; }
+        [DataMember]
         public virtual UserProfile UserProfile { get; set; }
     }
 }

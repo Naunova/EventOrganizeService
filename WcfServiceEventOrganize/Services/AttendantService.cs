@@ -8,17 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using WcfServiceEventOrganize.Contracts;
 using System.Runtime.Serialization;
-
-
+using System.ComponentModel.Composition;
 
 namespace WcfServiceEventOrganize.Services
 {
    public class AttendantService:IAttendantContract
     {
-        private IUnitOfWork _UnitOfWork;
+        
+        IUnitOfWork _UnitOfWork;
         public AttendantService(IUnitOfWork unitOfWork)
         {
             _UnitOfWork = unitOfWork;
+
+        }
+        public AttendantService()
+        {
 
         }
 
