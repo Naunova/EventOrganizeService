@@ -19,6 +19,7 @@ namespace EventOrganizeDataModel.Repositories
         public GenericRepository(EventOrganizingEntities context)
         {
             this.context = context;
+            dbSet = context.Set<TEntity>();
            
         }
         public virtual TEntity Add(TEntity entity)

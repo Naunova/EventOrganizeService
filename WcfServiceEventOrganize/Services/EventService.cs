@@ -12,14 +12,12 @@ namespace WcfServiceEventOrganize.Services
 {
    public class EventService:IEventContract
     {
-
+        IUnitOfWork _UnitOfWork;
         public EventService(IUnitOfWork unitOfWork)
         {
             _UnitOfWork = unitOfWork;
 
         }
-
-       IUnitOfWork _UnitOfWork;
 
         public EventService()
         {
