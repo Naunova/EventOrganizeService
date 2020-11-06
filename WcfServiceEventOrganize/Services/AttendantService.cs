@@ -15,16 +15,13 @@ namespace WcfServiceEventOrganize.Services
    public class AttendantService:IAttendantContract
     {
         
-        IUnitOfWork _UnitOfWork;
-        public AttendantService(IUnitOfWork unitOfWork)
-        {
-            _UnitOfWork = unitOfWork;
-
-        }
+        private IUnitOfWork _UnitOfWork;
         public AttendantService()
         {
+            _UnitOfWork = new UnitOfWork(new EventOrganizingEntities());
 
         }
+        
 
 
         public Attendant GetAttendant(int Id)

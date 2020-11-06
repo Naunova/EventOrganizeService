@@ -16,6 +16,7 @@ namespace EventOrganizeDomainClasses
     [DataContract]
     public partial class Event
     {
+        
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Event()
         {

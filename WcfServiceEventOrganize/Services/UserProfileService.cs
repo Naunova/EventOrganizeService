@@ -12,12 +12,12 @@ namespace WcfServiceEventOrganize.Services
 {
     public class UserProfileService:IUserProfileContract
     {
-       
+   
   
            IUnitOfWork _UnitOfWork;
-            public UserProfileService(IUnitOfWork unitOfWork)
+            public UserProfileService()
             {
-                _UnitOfWork = unitOfWork;
+                _UnitOfWork = new UnitOfWork(new EventOrganizingEntities());
             }
        
             public UserProfile[] GetAllUserProfiles()
@@ -26,6 +26,7 @@ namespace WcfServiceEventOrganize.Services
                 return users.ToArray();
 
             }
+       
 
             public UserProfile GetUserProfile(int Id)
             {

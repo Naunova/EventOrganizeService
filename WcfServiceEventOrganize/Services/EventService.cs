@@ -13,29 +13,27 @@ namespace WcfServiceEventOrganize.Services
    public class EventService:IEventContract
     {
         IUnitOfWork _UnitOfWork;
-        public EventService(IUnitOfWork unitOfWork)
-        {
-            _UnitOfWork = unitOfWork;
-
-        }
-
         public EventService()
         {
+            _UnitOfWork = new UnitOfWork(new EventOrganizingEntities());
 
         }
+
+        
 
         public Event GetEvent(int Id)
         {
+            Event eventEntity = null;
             try
             {
-                Event eventEntity = _UnitOfWork.EventRepository.GetById(Id);
+                eventEntity = _UnitOfWork.EventRepository.GetById(Id);
                 if (eventEntity == null)
                 {
                     NotFoundExeption ex = new NotFoundExeption(string.Format("Event with Id of {0} is not in the Database", Id));
                     throw new FaultException<NotFoundExeption>(ex, ex.Message);
                 }
 
-                return eventEntity;
+                
 
             }
             catch (FaultException ex)
@@ -50,7 +48,7 @@ namespace WcfServiceEventOrganize.Services
                 throw new FaultException(ex.Message);
             }
 
-
+            return eventEntity;
         }
 
         public Event[] GetAllEvents()

@@ -15,8 +15,7 @@ namespace WcfServiceEventOrganize.Contracts
         [OperationContract]
         Event GetEvent(int Id);
 
-        [OperationContract]
-        [FaultContract(typeof(NotFoundExeption))]
+        [OperationContract]        
         Event[] GetAllEvents();
 
         [OperationContract]

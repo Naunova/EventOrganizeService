@@ -18,7 +18,7 @@ namespace ServiceHosting
         static void Main(string[] args)
         {
             // Step 1: Create a URI to serve as the base address.
-            Uri baseAddress = new Uri("http://localhost:8733/Design_Time_Addresses/WcfServiceEventOrganize/Service1/");
+            Uri baseAddress = new Uri("http://localhost:8000/Service1/");
 
             // Step 2: Create a ServiceHost instance.
             ServiceHost selfHost = new ServiceHost(typeof(Service1), baseAddress);
